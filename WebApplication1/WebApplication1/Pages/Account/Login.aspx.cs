@@ -15,7 +15,8 @@ namespace WebApplication1.Pages.Account
         {
 
         }
-
+        //В Get-версии метода Login мы получаем адрес для возврата в виде параметра returnUrl и передаем его в модель LoginViewModel.
+        //Post-version Login 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             Microsoft.AspNet.Identity.EntityFramework.UserStore<IdentityUser> userStore = new UserStore<IdentityUser>();
@@ -30,12 +31,12 @@ namespace WebApplication1.Pages.Account
 
             if(user !=null)
             {
-                var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;
+                var authenticationManager = HttpContext.Current.GetOwinContext().Authentication;//Инкапсулирует все связанные с НТТР сведения об отдельном НТТР-запросе.
                 var userIdentity = manager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
 
                 authenticationManager.SignIn(new Microsoft.Owin.Security.AuthenticationProperties
                 {
-                    IsPersistent = false
+                    IsPersistent = false//Відповідає за збереження даних логування після закриття браузера
                 }, userIdentity);
 
                 Response.Redirect("~/Index.aspx");

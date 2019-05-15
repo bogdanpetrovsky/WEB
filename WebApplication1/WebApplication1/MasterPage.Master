@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="WebApplication1.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>CarGear</title>
+    <link rel ="stylesheet" href ="Styles/StyleSheet1.css" type ="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div style="background-image: url('/Images/3979336-car-wallpaper-hd.jpg'); margin-bottom: 0px;">
+            <div id="wrapper">
+                <div id ="banner">
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/BannerCar.jpg" Width="100%" />
+
+                </div>
+
+                <div id="navigation">
+                    <ul id ="nav">
+                        <li padding: 0px 20px 0px 20px;>
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl = "~/Index.aspx">WebShop</asp:HyperLink></li>
+                        <li padding: 0px 20px 0px 20px;>
+                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl = "~/Pages/About.aspx"> AboutUs</asp:HyperLink></li>
+                        <li padding: 0px 20px 0px 20px;>
+                            <asp:HyperLink ID="HyperLink3" runat="server">Reports</asp:HyperLink></li>
+                        <li padding: 0px 20px 0px 20px;>
+                            <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Pages/Management/Management.aspx">Management</asp:HyperLink></li>
+                        <li style ="float:right">
+                            <asp:HyperLink ID="lnkRegister" NavigateUrl="~/Pages/Account/Register.aspx" runat="server">Register</asp:HyperLink>
+                            <asp:HyperLink ID="litStatus" NavigateUrl="~/Pages/ShoppingCart.aspx" runat="server"></asp:HyperLink>
+                        </li>
+
+                        <li style ="float:right">
+                            <asp:HyperLink ID="lnkLogIn" NavigateUrl="~/Pages/Account/Login.aspx" runat="server">Log In</asp:HyperLink>
+                            <asp:LinkButton ID="lnkLogout" runat="server" OnClick="lnkLogout_Click">Log Out</asp:LinkButton>
+                        </li>
+
+                    </ul>
+                </div>
+                <div id="content">
+                             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                             </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
